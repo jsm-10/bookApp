@@ -11,18 +11,31 @@ public class Familias {
    String email;
    int id_casa;
 
-    public Familias(int id_familia, String nombre, int edad_minima, int edad_maxima, int num_hijos, String email) {
+    public Familias(int id_familia, String nombre, int edad_minima, int edad_maxima, int num_hijos, String email, int id_casa) {
         this.id_familia = id_familia;
         this.nombre = nombre;
         this.edad_minima = edad_minima;
         this.edad_maxima = edad_maxima;
         this.num_hijos = num_hijos;
         this.email = email;
+        this.id_casa = id_casa;
         
     }
 
+    public Familias() {
+    }
+    
+
     public int getId_familia() {
         return id_familia;
+    }
+
+    public int getId_casa() {
+        return id_casa;
+    }
+
+    public void setId_casa(int id_casa) {
+        this.id_casa = id_casa;
     }
 
     public void setId_familia(int id_familia) {
