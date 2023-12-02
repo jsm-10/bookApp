@@ -65,4 +65,12 @@ public final class casasDAO extends DAO {
             throw e;
         }
     }
+    public void eliminarCasa (String calle, int numero) throws Exception{
+        try {
+            String sql = "DELETE FROM casas WHERE calle = '" + calle + "' AND numero ='" + numero + "'";
+            insertarModificarEliminar(sql);
+        } catch (Exception e) {
+            throw e;
+        }
+    } 
 }
