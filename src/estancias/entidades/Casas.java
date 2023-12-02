@@ -1,7 +1,8 @@
 
 package estancias.entidades;
 
-import java.time.LocalDate;
+
+import java.sql.Date;
 
 
 public class Casas {
@@ -12,14 +13,14 @@ public class Casas {
     String codigo_postal;
     String ciudad;
     String pais;
-    LocalDate fecha_desde;
-    LocalDate fecha_hasta;
+    Date fecha_desde;
+    Date fecha_hasta;
     int tiempo_minimo;
     int tiempo_maximo;
     double precio_habitacion;
     String tipo_vivienda;
 
-    public Casas(int id_casa, String calle, int numero, String codigo_postal, String ciudad, String pais, LocalDate fecha_desde, LocalDate fecha_hasta, int tiempo_minimo, int tiempo_maximo, double precio_habitacion, String tipo_vivienda) {
+    public Casas(int id_casa, String calle, int numero, String codigo_postal, String ciudad, String pais, Date fecha_desde, Date fecha_hasta, int tiempo_minimo, int tiempo_maximo, double precio_habitacion, String tipo_vivienda) {
         this.id_casa = id_casa;
         this.calle = calle;
         this.numero = numero;
@@ -32,6 +33,10 @@ public class Casas {
         this.tiempo_maximo = tiempo_maximo;
         this.precio_habitacion = precio_habitacion;
         this.tipo_vivienda = tipo_vivienda;
+    }
+
+    public Casas() {
+       
     }
 
     public int getId_casa() {
@@ -82,19 +87,19 @@ public class Casas {
         this.pais = pais;
     }
 
-    public LocalDate getFecha_desde() {
+    public Date getFecha_desde() {
         return fecha_desde;
     }
 
-    public void setFecha_desde(LocalDate fecha_desde) {
+    public void setFecha_desde(Date fecha_desde) {
         this.fecha_desde = fecha_desde;
     }
 
-    public LocalDate getFecha_hasta() {
+    public Date getFecha_hasta() {
         return fecha_hasta;
     }
 
-    public void setFecha_hasta(LocalDate fecha_hasta) {
+    public void setFecha_hasta(Date fecha_hasta) {
         this.fecha_hasta = fecha_hasta;
     }
 

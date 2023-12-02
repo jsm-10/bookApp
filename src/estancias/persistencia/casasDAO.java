@@ -2,7 +2,9 @@
 package estancias.persistencia;
 
 import estancias.entidades.Casas;
-import java.time.LocalDate;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 
@@ -22,7 +24,7 @@ public final class casasDAO extends DAO {
             throw e;
         }
     }
-    public void modificarCasa (Casas casas, LocalDate fechaDesde, LocalDate fechaHasta, int tiempoMinimo, int tiempoMaximo,  Double precioHabitacion) throws Exception{
+    public void modificarCasa (Casas casas, Date fechaDesde, Date fechaHasta, int tiempoMinimo, int tiempoMaximo,  Double precioHabitacion) throws Exception{
         try {
             if(casas == null){
                 throw new Exception ("Indicar una casa valida");
@@ -72,5 +74,65 @@ public final class casasDAO extends DAO {
         } catch (Exception e) {
             throw e;
         }
-    } 
+    }
+   public Casas buscarCasa(String calle)throws Exception{
+       try {
+           String sql = "SELECT * FROM casas WHERE calle= '" + calle + "'";
+           consultarBase(sql);
+           Casas casas = null;
+           while (resultado.next()){
+               casas = new Casas();
+               casas.setId_casa(resultado.getByte(1));
+               casas.setCalle(resultado.getNString(2));
+               casas.setNumero(resultado.getByte(3));
+               casas.setCodigo_postal(resultado.getNString(4));
+               casas.setCiudad(resultado.getNString(5));
+               casas.setPais(resultado.getNString(6));
+               casas.setFecha_desde(resultado.getDate(7));
+               casas.setFecha_hasta(resultado.getDate(8));
+               casas.setTiempo_minimo(resultado.getInt(9));
+               casas.setTiempo_maximo(resultado.getInt(10));
+               casas.setPrecio_habitacion(resultado.getDouble(11));
+               casas.setTipo_vivienda(resultado.getString(12));
+               }
+           desconectarBase();
+           return casas;
+           }
+       catch (Exception e) {
+           e.printStackTrace();
+           desconectarBase();
+           throw new Exception ("Error al buscar casas");
+       }
+    
+   } 
+   public Collection <Casas> listarCasas() throws Exception{
+        try {
+           String sql = "SELECT * FROM casas";
+            consultarBase(sql);
+            Casas casas = null;
+            Collection <Casas> casass = new ArrayList();
+            while (resultado.next()) {
+             casas = new Casas();
+             casas.setCalle(resultado.getNString(2));
+             casas.setNumero(resultado.getInt(3));
+             casas.setCodigo_postal(resultado.getNString(4));
+             casas.setCiudad(resultado.getNString(5));
+             casas.setPais(resultado.getNString(6));
+             casas.setFecha_desde(resultado.getDate(7));
+             casas.setFecha_hasta(resultado.getDate(8));
+             casas.setTiempo_minimo(resultado.getInt(9));
+             casas.setTiempo_maximo(resultado.getInt(10));
+             casas.setPrecio_habitacion(resultado.getDouble(11));
+             casas.setTipo_vivienda(resultado.getString(12));
+             casass.add(casas);
+            }
+            desconectarBase();
+            return casass;
+       } catch (Exception e) {
+           e.printStackTrace();
+           desconectarBase();
+           throw new Exception("Error de sistema");
+       }
+    }
+    
 }

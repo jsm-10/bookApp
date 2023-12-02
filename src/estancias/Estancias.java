@@ -1,20 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package estancias;
 
-/**
- *
- * @author juans
- */
+import estancias.servicios.CasasService;
+
+
 public class Estancias {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception {
+        CasasService casasservice = new CasasService();
+        
+        try {
+            casasservice.PorPeriodo();
+        } catch (Exception e) {
+            throw new Exception ("error al intentar clasificar en periodos");
+        }
     }
     
 }
