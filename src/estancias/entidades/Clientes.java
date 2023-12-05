@@ -24,6 +24,10 @@ public class Clientes {
         this.email = email;
     }
 
+    public Clientes() {
+    }
+    
+
     public int getId_cliente() {
         return id_cliente;
     }
