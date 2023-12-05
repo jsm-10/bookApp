@@ -23,7 +23,42 @@ public class CasasService {
         this.dao = new casasDAO();
     }
     
-   public void PorPeriodo() throws Exception{
+   public void PorDesdeyDias() throws Exception{
+       try {
+           Collection <Casas> casas = dao.listarCasas();
+           Scanner sc = new Scanner(System.in);
+           System.out.println("Seleccionar fecha desde y hasta:");
+
+        
+           if(casas.isEmpty()){
+               throw new Exception ("Error al listar casas");
+  
+           }
+        System.out.println("Seleccionar fecha desde (YYYY-MM-DD): ");
+        String desdeStr = sc.next();
+        LocalDate desde = LocalDate.parse(desdeStr);
+           System.out.println(desde);
+
+        System.out.println("Selecciona la cantidad de dias");
+        int diasDisp = sc.nextInt();
+           System.out.println(diasDisp);
+
+               for (Casas casa : casas) {  
+                   LocalDate fechaDesde = casa.getFecha_desde().toLocalDate();
+                   System.out.println("Fecha desde casa: " + desde);
+                   System.out.println("Cantidad de dias: " + diasDisp);
+                    if ((desde.isEqual(fechaDesde)) && (diasDisp > casa.getTiempo_minimo()) && (diasDisp < casa.getTiempo_maximo())) {
+                    System.out.println(casa);
+                   }
+                   
+               }
+           
+       } catch (Exception e) {
+           e.printStackTrace();
+           throw e;
+       }
+   }
+       public void PorPeriodo() throws Exception{
        try {
            Collection <Casas> casas = dao.listarCasas();
            Scanner sc = new Scanner(System.in);
@@ -61,6 +96,6 @@ public class CasasService {
        }
    }
  
-        
+    
     }
 

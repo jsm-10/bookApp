@@ -21,10 +21,16 @@ public class Estancias {
 //        } catch (Exception e) {
 //            throw new Exception ("Error al intentar clasificar las familias en hijos y edad maxima");
 //        }
+//          try {
+//            fs.FamiliasEmail();
+//        } catch (Exception e) {
+//            throw new Exception ("Error al intentar clasificar las familias por el email");
+//        }
           try {
-            fs.FamiliasEmail();
+            casasservice.PorDesdeyDias();
+            
         } catch (Exception e) {
-            throw new Exception ("Error al intentar clasificar las familias por el email");
+            throw new Exception ("Error al clasificar en fecha y dias de disponibilidad");
         }
 
     }
