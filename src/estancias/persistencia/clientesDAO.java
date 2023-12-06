@@ -48,5 +48,24 @@ public final class clientesDAO extends DAO {
             throw new Exception ("Error de sistema al listar los productos");
         }
     }
+    public Clientes buscarClientesporId (int id) throws Exception{
+        try {
+            String sql = "Select * FROM clientes Where id = '" + id + "'";
+            consultarBase(sql);
+            Clientes cliente = null;
+            while (resultado.next()) {                
+                cliente = new Clientes();
+                cliente.setNombre(resultado.getNString(2));
+                cliente.setCalle(resultado.getNString(3));
+                cliente.setNumero(resultado.getInt(4));
+                cliente.setEmail(resultado.getNString(8));
+            }
+            desconectarBase();
+            return cliente;
+        } catch (Exception e) {
+            desconectarBase();
+            throw e;
+        }
+    }
           
 }

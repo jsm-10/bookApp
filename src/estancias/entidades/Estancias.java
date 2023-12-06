@@ -1,7 +1,8 @@
 
 package estancias.entidades;
 
-import java.time.LocalDate;
+
+import java.sql.Date;
 
 
 public class Estancias {
@@ -9,16 +10,20 @@ public class Estancias {
     int id_cliente;
     int id_casa;
     String nombre_huesped;
-    LocalDate fecha_desde;
-    LocalDate fecha_hasta;
+    Date fecha_desde;
+    Date fecha_hasta;
+    Clientes cliente;
+    Casas casas;
 
-    public Estancias(int id_estancia, int id_cliente, int id_casa, String nombre_huesped, LocalDate fecha_desde, LocalDate fecha_hasta) {
+    public Estancias(int id_estancia, int id_cliente, int id_casa, String nombre_huesped, Date fecha_desde, Date fecha_hasta, Clientes cliente, Casas casas) {
         this.id_estancia = id_estancia;
         this.id_cliente = id_cliente;
         this.id_casa = id_casa;
         this.nombre_huesped = nombre_huesped;
         this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
+        this.cliente = cliente;
+        this.casas = casas;
     }
 
     public Estancias() {
@@ -26,6 +31,14 @@ public class Estancias {
 
     public int getId_estancia() {
         return id_estancia;
+    }
+
+    public Casas getCasas() {
+        return casas;
+    }
+
+    public void setCasas(Casas casas) {
+        this.casas = casas;
     }
 
     public void setId_estancia(int id_estancia) {
@@ -44,6 +57,14 @@ public class Estancias {
         return id_casa;
     }
 
+    public Clientes getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Clientes cliente) {
+        this.cliente = cliente;
+    }
+
     public void setId_casa(int id_casa) {
         this.id_casa = id_casa;
     }
@@ -56,19 +77,19 @@ public class Estancias {
         this.nombre_huesped = nombre_huesped;
     }
 
-    public LocalDate getFecha_desde() {
+    public Date getFecha_desde() {
         return fecha_desde;
     }
 
-    public void setFecha_desde(LocalDate fecha_desde) {
+    public void setFecha_desde(Date fecha_desde) {
         this.fecha_desde = fecha_desde;
     }
 
-    public LocalDate getFecha_hasta() {
+    public Date getFecha_hasta() {
         return fecha_hasta;
     }
 
-    public void setFecha_hasta(LocalDate fecha_hasta) {
+    public void setFecha_hasta(Date fecha_hasta) {
         this.fecha_hasta = fecha_hasta;
     }
 

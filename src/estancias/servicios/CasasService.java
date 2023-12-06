@@ -95,6 +95,17 @@ public class CasasService {
            throw e;
        }
    }
+        public Casas buscarCasaseporId(Integer id) throws Exception{
+        try {
+            if (id == null){
+                throw new Exception ("Indique un ID casa Correcto");
+            }
+            Casas casa = dao.buscarCasasporId(id);
+            return casa;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
  
     
     }

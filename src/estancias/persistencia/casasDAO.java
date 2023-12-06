@@ -10,6 +10,9 @@ import java.util.Collection;
 
 public final class casasDAO extends DAO {
     
+    
+    
+    
     public void guardarCasa (Casas casas) throws Exception{
         try {
             if (casas == null){
@@ -134,5 +137,28 @@ public final class casasDAO extends DAO {
            throw new Exception("Error de sistema");
        }
     }
+   public Casas buscarCasasporId (Integer id) throws Exception{
+       try {
+           String sql = "SELECT * FROM casas" + "WHERE id = '" +id + "'";
+           consultarBase(sql);
+           Casas casa = null;
+           while (resultado.next()) {               
+               casa = new Casas();
+               casa.setId_casa(resultado.getByte(1));
+               casa.setCalle(resultado.getNString(2));
+               casa.setNumero(resultado.getByte(3));
+               casa.setCodigo_postal(resultado.getNString(4));
+               casa.setCiudad(resultado.getNString(5));
+               casa.setPais(resultado.getNString(6));
+               casa.setPrecio_habitacion(resultado.getDouble(11));
+           }
+           desconectarBase();
+           return casa;
+       } catch (Exception e) {
+           desconectarBase();
+           throw e;
+           
+       }
+   }
     
 }
