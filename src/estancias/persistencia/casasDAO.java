@@ -139,7 +139,7 @@ public final class casasDAO extends DAO {
     }
    public Casas buscarCasasporId (Integer id) throws Exception{
        try {
-           String sql = "SELECT * FROM casas" + "WHERE id = '" +id + "'";
+           String sql = "SELECT * FROM casas WHERE id_casa = " + id + "";
            consultarBase(sql);
            Casas casa = null;
            while (resultado.next()) {               

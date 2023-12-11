@@ -50,11 +50,12 @@ public final class clientesDAO extends DAO {
     }
     public Clientes buscarClientesporId (int id) throws Exception{
         try {
-            String sql = "Select * FROM clientes Where id = '" + id + "'";
+            String sql = "SELECT * FROM clientes WHERE id_cliente = " + id + "";
             consultarBase(sql);
             Clientes cliente = null;
             while (resultado.next()) {                
                 cliente = new Clientes();
+                cliente.setId_cliente(resultado.getByte(1));
                 cliente.setNombre(resultado.getNString(2));
                 cliente.setCalle(resultado.getNString(3));
                 cliente.setNumero(resultado.getInt(4));

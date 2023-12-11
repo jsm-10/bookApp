@@ -22,8 +22,8 @@ public class Estancias {
         this.nombre_huesped = nombre_huesped;
         this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
-        this.cliente = cliente;
-        this.casas = casas;
+        this.cliente = new Clientes();
+        this.casas = new Casas();
     }
 
     public Estancias() {
@@ -95,8 +95,10 @@ public class Estancias {
 
     @Override
     public String toString() {
-        return "Estancias{" + "id_estancia=" + id_estancia + ", id_cliente=" + id_cliente + ", id_casa=" + id_casa + ", nombre_huesped=" + nombre_huesped + ", fecha_desde=" + fecha_desde + ", fecha_hasta=" + fecha_hasta + '}';
+        return "Estancias{" + "id_estancia=" + id_estancia + ", id_cliente=" + id_cliente + ", id_casa=" + id_casa + ", nombre_huesped=" + nombre_huesped + ", fecha_desde=" + fecha_desde + ", fecha_hasta=" + fecha_hasta + ", cliente=" + cliente + ", casas=" + casas + '}';
     }
+
+    
     
     
 }
