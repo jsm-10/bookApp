@@ -39,10 +39,15 @@ public class Estancias {
 //        } catch (Exception e) {
 //            throw new Exception ("Error al mostrar las estancias, personas y casas");
 //        }
+//          try {
+//              casasservice.CasasActualizadas();
+//        } catch (Exception e) {
+//            throw new Exception ("La actualizacion no funciona");
+//        }
           try {
-              casasservice.CasasActualizadas();
+            casasservice.separarCasasxPais();
         } catch (Exception e) {
-            throw new Exception ("La actualizacion no funciona");
+            throw new Exception ("La clasificacion no funciono");
         }
 
     }

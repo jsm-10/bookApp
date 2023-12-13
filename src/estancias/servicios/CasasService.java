@@ -125,6 +125,31 @@ public class CasasService {
             throw e;
         }
     }
+        public void separarCasasxPais(){
+            try {
+                Collection <Casas> casas = dao.listarCasas();
+                if(casas.isEmpty()){
+                    throw new Exception ("Casa invalida");
+                }
+                int RU = 0;
+                int IR = 0;
+                int HOL = 0;
+                for (Casas casa : casas) {
+                    if(casa.getPais().contains("Reino")){
+                        RU++;
+                    }if(casa.getPais().contains("Irl")){
+                        IR++;
+                    }if(casa.getPais().contains("Hol")){
+                        HOL++;
+                    }
+                    
+                }
+                System.out.println("Reino Unido tiene: " + RU + " Casas Inscriptas");
+                System.out.println("Irlanda tiene: " + IR + " Casas Inscriptas");
+                System.out.println("Paises Bajos tiene: " + HOL + " Casas Inscriptas");
+            } catch (Exception e) {
+            }
+        }
  
     
     }
