@@ -159,6 +159,20 @@ public final class casasDAO extends DAO {
            throw e;
            
        }
+      
+           
+       }
+    public void modificarCasaPrecio (Casas casa, double nuevoPrecio) throws Exception{
+        try {
+            if(casa == null){
+                throw new Exception ("La casa no se encuentra");
+            }
+            casa.setPrecio_habitacion(nuevoPrecio);
+            String sql = "UPDATE casas SET precio_habitacion = '" + casa.getPrecio_habitacion() + "' WHERE id_casa = '" + casa.getId_casa() + "'";
+            insertarModificarEliminar(sql);
+        } catch (Exception e) {
+            throw e;
+        }
    }
     
 }

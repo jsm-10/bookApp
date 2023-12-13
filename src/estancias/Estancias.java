@@ -34,10 +34,15 @@ public class Estancias {
 //        } catch (Exception e) {
 //            throw new Exception ("Error al clasificar en fecha y dias de disponibilidad");
 //        }
+//          try {
+//              System.out.println(es.listarEstanciasClientesyCasa());
+//        } catch (Exception e) {
+//            throw new Exception ("Error al mostrar las estancias, personas y casas");
+//        }
           try {
-              System.out.println(es.listarEstanciasClientesyCasa());
+              casasservice.CasasActualizadas();
         } catch (Exception e) {
-            throw new Exception ("Error al mostrar las estancias, personas y casas");
+            throw new Exception ("La actualizacion no funciona");
         }
 
     }

@@ -94,6 +94,25 @@ public class CasasService {
            e.printStackTrace();
            throw e;
        }
+       
+       }
+       public void CasasActualizadas(){
+           try {
+               Collection <Casas> casas = dao.listarCasas();
+               if(casas.isEmpty()){
+                   throw new Exception ("Error al listar casas");
+               }
+               for (Casas x : casas) {
+                   double cincoporciento = x.getPrecio_habitacion() * 0.05;
+                   double nuevoprecio = x.getPrecio_habitacion() + cincoporciento;
+                   System.out.println("El precio anterior es: " + x.getPrecio_habitacion());
+                   dao.modificarCasaPrecio(x,nuevoprecio);
+                   System.out.println("El precio con la actualizacion del 5% es: " + x.getPrecio_habitacion());
+                   System.out.println("--------------------------------------------------------------");
+                   
+               }
+           } catch (Exception e) {
+           }
    }
         public Casas buscarCasaseporId(Integer id) throws Exception{
         try {
