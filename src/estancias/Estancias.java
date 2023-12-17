@@ -2,6 +2,7 @@
 package estancias;
 
 import estancias.servicios.CasasService;
+import estancias.servicios.ComentariosService;
 import estancias.servicios.EstanciasService;
 import estancias.servicios.FamiliasService;
 
@@ -12,6 +13,7 @@ public class Estancias {
         CasasService casasservice = new CasasService();
         FamiliasService fs = new FamiliasService();
         EstanciasService es = new EstanciasService();
+        ComentariosService cs = new ComentariosService();
         
 //        try {
 //            casasservice.PorPeriodo();
@@ -44,12 +46,17 @@ public class Estancias {
 //        } catch (Exception e) {
 //            throw new Exception ("La actualizacion no funciona");
 //        }
+//          try {
+//            casasservice.separarCasasxPais();
+//        } catch (Exception e) {
+//            throw new Exception ("La clasificacion no funciono");
+//        }
           try {
-            casasservice.separarCasasxPais();
+            cs.listarComentariosxCasa();
         } catch (Exception e) {
-            throw new Exception ("La clasificacion no funciono");
+            e.printStackTrace();
+            throw new Exception ("Error al clasificar los comentarios");
         }
-
     }
     
 }

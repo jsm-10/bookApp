@@ -6,15 +6,28 @@ public class Comentarios {
     int id_comentario;
     int id_casa;
     String comentario;
+    Casas casas;
 
-    public Comentarios(int id_comentario, int id_casa, String comentario) {
+    public Comentarios(int id_comentario, int id_casa, String comentario, Casas casas ) {
         this.id_comentario = id_comentario;
         this.id_casa = id_casa;
         this.comentario = comentario;
+        this.casas = new Casas();
     }
 
     public int getId_comentario() {
         return id_comentario;
+    }
+
+    public Comentarios() {
+    }
+
+    public Casas getCasas() {
+        return casas;
+    }
+
+    public void setCasas(Casas casas) {
+        this.casas = casas;
     }
 
     public void setId_comentario(int id_comentario) {
